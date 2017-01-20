@@ -1,0 +1,41 @@
+<form flex="100" class="base">
+  <h3 class="center-align" ng-show="vm.hasConnectedAdditionalSocialAccounts()">Connected social accounts : </h3>
+
+  <div class="col s12 text-center">
+    <!-- If the user's provider field (primary) is a social account, show it here -->
+    <div ng-if="vm.user.provider !== 'local'" class="social-account-container">
+      <img ng-src="/modules/users/client/img/buttons/{{vm.user.provider}}.png">
+      <i class="glyphicon glyphicon-check text-success user-primary-account" data-toggle="popover" title="Primary: {{vm.user.provider}}"></i>
+    </div>
+    <div ng-repeat="(providerName, providerData) in vm.user.additionalProvidersData" class="social-account-container">
+      <a ng-click="vm.removeUserSocialAccount(providerName)">
+        <img ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
+  <h3 class="center-align" ng-show="!vm.hasConnectedAdditionalSocialAccounts()">Unconnected social accounts : </h3>
+
+  <div class="center-align">
+    <a href="" ng-click="vm.callOauthProvider('/api/auth/facebook')">
+      <div class="social-button" ng-hide="vm.isConnectedSocialAccount('facebook')" style="background:url('/modules/users/client/img/buttons/facebook.png');"></div>
+    </a>
+    <a href="" ng-click="vm.callOauthProvider('/api/auth/twitter')">
+      <div class="social-button" ng-hide="vm.isConnectedSocialAccount('twitter')" style="background:url('/modules/users/client/img/buttons/twitter.png');"></div>
+    </a>
+    <a href="" ng-click="vm.callOauthProvider('/api/auth/google')">
+      <div class="social-button" ng-hide="vm.isConnectedSocialAccount('google')" style="background:url('/modules/users/client/img/buttons/google.png');"></div>
+    </a>
+    <a href="" ng-click="vm.callOauthProvider('/api/auth/linkedin')">
+      <div class="social-button" ng-hide="vm.isConnectedSocialAccount('linkedin')" style="background:url('/modules/users/client/img/buttons/linkedin.png');"></div>
+    </a>
+    <a href="" ng-click="vm.callOauthProvider('/api/auth/github')">
+      <div class="social-button" ng-hide="vm.isConnectedSocialAccount('github')" style="background:url('/modules/users/client/img/buttons/github.png');"></div>
+    </a>
+    <a href="" ng-click="vm.callOauthProvider('/api/auth/paypal')">
+      <div class="social-button" ng-hide="vm.isConnectedSocialAccount('paypal')" style="background:url('/modules/users/client/img/buttons/paypal.png');"></div>
+    </a>
+  </div>
+
+</form>

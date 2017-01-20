@@ -1,0 +1,28 @@
+<section class="users">
+  <md-content>
+    <div layout="row" class="row" layout-align="center">
+      <div flex="100" class="center-align">
+        <h3>Sign in using your social accounts</h3>
+        <a>
+          <div class="social-button" ng-click="vm.callOauthProvider('/api/auth/facebook')" style="background:url('/modules/users/client/img/buttons/facebook.png');"></div>
+        </a>
+        <a>
+          <div class="social-button" ng-click="vm.callOauthProvider('/api/auth/twitter')" style="background:url('/modules/users/client/img/buttons/twitter.png');"></div>
+        </a>
+        <a>
+          <div class="social-button" ng-click="vm.callOauthProvider('/api/auth/google')" style="background:url('/modules/users/client/img/buttons/google.png');"></div>
+        </a>
+        <a>
+          <div class="social-button" ng-click="vm.callOauthProvider('/api/auth/linkedin')" style="background:url('/modules/users/client/img/buttons/linkedin.png');"></div>
+        </a>
+        <a>
+          <div class="social-button" ng-click="vm.callOauthProvider('/api/auth/github')" style="background:url('/modules/users/client/img/buttons/github.png');"></div>
+        </a>
+        <a>
+          <div class="social-button" ng-click="vm.callOauthProvider('/api/auth/paypal')" style="background:url('/modules/users/client/img/buttons/paypal.png');"></div>
+        </a>
+      </div>
+    </div>
+    <div ui-view> </div>
+  </md-content>
+</section>

@@ -1,0 +1,44 @@
+<form flex="100" class="base" name="vm.userForm" ng-submit="vm.updateUserProfile(vm.userForm.$valid)" novalidate autocomplete="off">
+  <md-input-container class="md-icon-float md-block" show-errors>
+    <md-icon><i class="fa fa-user"></i></md-icon>
+    <input ng-model="vm.user.firstName" type="text" placeholder="First Name" id="firstName" name="firstName" required autofocus />
+    <div ng-messages="vm.userForm.firstName.$error" role="alert">
+      <p ng-message="required" class="error-text">First name is required.</p>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-icon-float md-block" show-errors>
+    <md-icon><i class="fa fa-user"></i></md-icon>
+    <input ng-model="vm.user.lastName" type="text" placeholder="Last Name" id="lastName" name="lastName" required />
+    <div ng-messages="vm.userForm.lastName.$error" role="alert">
+      <p ng-message="required" class="error-text">Last name is required.</p>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-icon-float md-block" show-errors>
+    <md-icon><i class="fa fa-send"></i></md-icon>
+    <input ng-model="vm.user.email" type="text" placeholder="Email" id="email" name="email" lowercase required />
+    <div ng-messages="vm.userForm.email.$error" role="alert">
+      <p ng-message="required" class="error-text">Email is required.</p>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-icon-float md-block" show-errors>
+    <md-icon><i class="fa fa-user"></i></md-icon>
+    <input ng-model="vm.user.username" type="text" placeholder="Username" id="username" name="username" lowercase required />
+    <div ng-messages="vm.userForm.username.$error" role="alert">
+      <p ng-message="required" class="error-text">Username is required.</p>
+    </div>
+  </md-input-container>
+
+
+  <div class="center-align">
+    <md-button type="submit" class="md-raised md-primary">Save Profile</md-button>
+  </div>
+  <div ng-show="vm.success" class="center-align text-success">
+    <strong>Profile Saved Successfully</strong>
+  </div>
+  <div type="danger" ng-show="vm.error" class="center-align text-danger">
+    <span ng-bind="vm.error"></span>
+  </div>
+</form>

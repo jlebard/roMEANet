@@ -1,0 +1,54 @@
+/*
+ * Navbar
+ */
+
+.header nav.top{
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+  height: 50px !important;
+  line-height: 50px !important;
+  margin-bottom: 20px;
+  padding: 0 1.25rem;
+  position:fixed;
+  right:0;
+  width: 100%;
+  z-index: 48;
+}
+
+.header nav.top .topTitle a, .header nav.top .topTitle span {
+  color: #4c4e54;
+  font-size: 24px;
+}
+
+.header nav.top ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav.top ul.right {
+  float:right;
+}
+
+.header nav.top ul li {
+  float: left;
+  list-style-type: none;
+}
+/* List */
+.header nav.top ul li.item {
+  width: 50px;
+}
+
+.header nav.top ul li a {
+  color: #2c3e50;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.header nav.top ul a:hover {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.1);
+}

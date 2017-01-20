@@ -1,0 +1,49 @@
+<section class="users">
+  <md-content class="md-no-momentum">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2>User</h2>
+      </div>
+    </md-toolbar>
+    <form flex="100" class="base" name="vm.userForm" ng-submit="vm.update(vm.userForm.$valid)" novalidate autocomplete="off">
+      <md-input-container class="md-icon-float md-block" show-errors>
+        <md-icon><i class="fa fa-user"></i></md-icon>
+        <input ng-model="vm.user.firstName" type="text" placeholder="First Name" id="firstName" name="firstName" required />
+        <div ng-messages="vm.userForm.firstName.$error" role="alert">
+          <p ng-message="required" class="error-text">First name is required.</p>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" show-errors>
+        <md-icon><i class="fa fa-user"></i></md-icon>
+        <input ng-model="vm.user.lastName" type="text" placeholder="Last Name" id="lastName" name="lastName" required />
+        <div ng-messages="vm.userForm.lastName.$error" role="alert">
+          <p ng-message="required" class="error-text">Last name is required.</p>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" show-errors>
+        <md-icon><i class="fa fa-lock"></i></md-icon>
+        <label>Roles</label>
+        <md-select ng-model="vm.user.roles" md-on-close="vm.clearSearchTerm()" data-md-container-class="SelectHeader" multiple="" id="roles" name="roles" required>
+          <md-select-header class="usersSelect-header">
+            <input ng-model="vm.searchTerm" type="search" placeholder="Search for a role.." class="select-header-searchbox md-text">
+          </md-select-header>
+          <md-optgroup label="roles">
+            <md-option ng-value="role" ng-repeat="role in vm.availableRolesList | filter:vm.searchTerm">{{role}}</md-option>
+          </md-optgroup>
+        </md-select>
+        <div ng-messages="vm.userForm.roles.$error" role="alert">
+          <p ng-message="required" class="error-text">At least one role is required.</p>
+        </div>
+      </md-input-container>
+
+      <div class="center-align">
+        <md-button type="submit" class="md-raised md-primary">Update</md-button>
+      </div>
+      <div type="danger" ng-show="vm.error" class="center-align text-danger">
+        <span ng-bind="vm.error"></span>
+      </div>
+    </form>
+  </md-content>
+</section>

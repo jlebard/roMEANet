@@ -1,0 +1,36 @@
+<section class="users">
+  <md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2>User</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ui-sref="admin.user-edit({userId: vm.user._id})" aria-label="Favorite">
+          <i class="fa fa-pencil fa-2x"></i>
+        </md-button>
+        <md-button class="md-icon-button" ng-click="vm.remove();"  ng-if="!vm.isContextUserSelf()" aria-label="More">
+          <i class="fa fa-trash-o fa-2x"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-list class="base">
+      <md-list-item>
+        <strong flex="10">First Name : </strong> <span ng-bind="vm.user.firstName"></span>
+      </md-list-item>
+      <md-list-item>
+        <strong flex="10">Last Name : </strong> <span ng-bind="vm.user.lastName"></span>
+      </md-list-item>
+      <md-list-item>
+        <strong flex="10">Email : </strong> <span ng-bind="vm.user.email"></span>
+      </md-list-item>
+      <md-list-item>
+        <strong flex="10">Provider : </strong> <span ng-bind="vm.user.provider"></span>
+      </md-list-item>
+      <md-list-item>
+        <strong flex="10">Created : </strong> <span ng-bind="vm.user.created"></span>
+      </md-list-item>
+      <md-list-item>
+        <strong flex="10">Roles : </strong> <span ng-bind="vm.user.roles"></span>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</section>

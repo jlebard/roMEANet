@@ -1,0 +1,27 @@
+<section class="articles">
+  <md-content class="md-no-momentum">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2>{{vm.article._id ? 'Edit Article' : 'New Article'}}</h2>
+      </div>
+    </md-toolbar>
+    <form flex="100" class="base" name="vm.form.articleForm" ng-submit="vm.save(vm.form.articleForm.$valid)" novalidate>
+      <md-input-container class="md-icon-float md-block" show-errors>
+        <md-icon><i class="fa fa-text-width"></i></md-icon>
+        <input ng-model="vm.article.title" type="text" placeholder="Title" id="title" name="title" required />
+        <div ng-messages="vm.form.articleForm.title.$error" role="alert">
+          <p ng-message="required" class="error-text">Article title is required.</p>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" show-errors>
+        <md-icon><i class="fa fa-align-left"></i></md-icon>
+        <textarea ng-model="vm.article.content" type="text" placeholder="Content" id="content" name="content" required cols="30" rows="5" />
+      </md-input-container>
+
+      <div class="center-align">
+        <md-button type="submit" class="md-raised md-primary">{{vm.article._id ? 'Update' : 'Create'}}</md-button>
+      </div>
+    </form>
+  </md-content>
+</section>

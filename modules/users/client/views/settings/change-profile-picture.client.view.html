@@ -1,0 +1,29 @@
+<form flex="100" class="base">
+  <div class="center-align">
+    <img ngf-src="vm.fileSelected ? picFile : '/' + vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="user-profile-picture" ngf-drop>
+    <img ngf-src="vm.fileSelected ? picFile : '/' + vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="user-profile-picture circle" ngf-drop>
+  </div>
+  <div ng-show="vm.loading" class="form-group center-align">
+    <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+  </div>
+  <div ng-show="!vm.fileSelected" class="center-align">
+    <md-button class="md-raised md-primary" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" ng-model="picFile" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400">Select Picture</md-button>
+  </div>
+  <div ng-show="vm.fileSelected" class="center-align">
+    <md-button class="md-raised md-primary" ng-click="vm.upload(picFile)">Upload</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.fileSelected = false">Cancel</md-button>
+  </div>
+  <div ng-show="vm.fileSelected">
+    <span layout="row" layout-align="center center">{{vm.progress}}% Complete</span>
+    <div layout="row" layout-align="center center">
+      <md-progress-linear flex="60" md-mode="determinate" value="{{vm.progress}}"></md-progress-linear>
+    </div>
+    <br />
+  </div>
+  <div ng-show="vm.success" class="center-align text-success">
+    <strong>Profile Picture Changed Successfully</strong>
+  </div>
+  <div type="danger" ng-show="vm.error" class="center-align text-danger">
+    <span ng-bind="vm.error"></span>
+  </div>
+</form>
