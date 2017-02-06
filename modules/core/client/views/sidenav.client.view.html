@@ -1,4 +1,4 @@
-<div class="sidenav" ng-controller="SidenavController as vm">
+<div class="sidenav" ng-controller="SidenavController as vm"  md-colors="{background: 'background-SIDENAVLIGHT'}">
   <div class="sidebar-nav">
     <div class="head">
       <a ui-sref="home">
@@ -32,7 +32,7 @@
         </a>
       </div>
     </div>
-    <div class="foot">
+    <div class="foot" md-colors="{background: 'background-SIDENAVDARK'}">
       <a class="dropdown-toggle center-align" ng-click="vm.setSideblock()">
         <i ng-if="vm.sideblock" class="fa fa-angle-left fa-fw"></i>
         <i ng-if="!vm.sideblock" class="fa fa-angle-right fa-fw"></i>
