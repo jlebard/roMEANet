@@ -205,6 +205,4 @@
 
 .logo .shape:hover {
   transition: all .2s;
-
-  stroke: #bdc3c7;
 }
